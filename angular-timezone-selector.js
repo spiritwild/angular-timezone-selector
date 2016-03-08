@@ -60,10 +60,10 @@ angular.module('angular-timezone-selector', [])
       template: '<select style="min-width:300px;"></select>',
       scope: {
         ngModel: '=',
-        placeholder: '=',
-        primary: '=',
-        local: '=',
-        noResults: '='
+        placeholder: '@',
+        primary: '@',
+        local: '@',
+        noResults: '@'
       },
       link: function ($scope, elem, attrs) {
         var data = []
