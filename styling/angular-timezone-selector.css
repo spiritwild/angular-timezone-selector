@@ -100,8 +100,7 @@
   background: url("chosen-sprite.png") no-repeat -22px -3px;
 }
 .chosen-container-single .chosen-single {
-  background-color: #ffffff;
-  background-clip: padding-box;
+  background: transparent;
   border: 1px solid #cccccc;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -387,4 +386,7 @@
     background-size: 52px 37px !important;
     background-repeat: no-repeat !important;
   }
+}
+.chosen-container .chosen-single .group-name{
+  display: none;
 }

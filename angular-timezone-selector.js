@@ -21,7 +21,7 @@ angular.module('angular-timezone-selector', [])
           var tz = moment.tz(zoneName)
           timezoneMap[zoneName] = {
             id: zoneName,
-            name: zoneName.replace(/_/g, ' '),
+            name: '(GMT' + moment.tz(zoneName).format('Z') + ') '+zoneName.replace(/_/g, ' '),
             offset: 'UTC' + tz.format('Z'),
             nOffset: tz.utcOffset()
           }
