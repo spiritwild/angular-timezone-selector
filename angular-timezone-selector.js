@@ -60,7 +60,10 @@ angular.module('angular-timezone-selector', [])
       template: '<select style="min-width:300px;"></select>',
       scope: {
         ngModel: '=',
-        translations: '='
+        placeholder: '=',
+        primary: '=',
+        local: '=',
+        noResults: '='
       },
       link: function ($scope, elem, attrs) {
         var data = []
@@ -109,7 +112,7 @@ angular.module('angular-timezone-selector', [])
           }
 
           data.splice(0, 0, {
-            text: _.get($scope, 'translations.local', 'Local') + ': ',
+            text: _.get($scope, 'local', 'Local') + ': ',
             children: extraTZs,
             firstNOffset: extraTZs[0].nOffset,
             firstOffset: extraTZs[0].offset
@@ -131,7 +134,7 @@ angular.module('angular-timezone-selector', [])
           extraTZs = _.filter(timezones, function (tz) { return _.includes(primaryChoices, tz.name) })
 
           data.splice(0, 0, {
-            text: _.get($scope, 'translations.primary', 'Primary') + ': ',
+            text: _.get($scope, 'primary', 'Primary') + ': ',
             children: extraTZs,
             firstNOffset: extraTZs[0].nOffset,
             firstOffset: extraTZs[0].offset
@@ -157,9 +160,9 @@ angular.module('angular-timezone-selector', [])
           width: attrs.width || '300px',
           include_group_label_in_selected: true,
           search_contains: true,
-          no_results_text: _.get($scope, 'translations.no_results_text',
+          no_results_text: _.get($scope, 'noResults',
               'No results, try searching for the name of your country or nearest major city.'),
-          placeholder_text_single: _.get($scope, 'translations.placeholder', 'Choose a timezone')
+          placeholder_text_single: _.get($scope, 'placeholder', 'Choose a timezone')
         })
 
         // Update the box if ngModel changes
